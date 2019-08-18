@@ -3,14 +3,14 @@ package Zad1;
 public class Employee {
     private String firstName;
     private String lastName;
-    private int pesel;
+    private String pesel;
     private String department;
     private double salary;
 
     public Employee() {
     }
 
-    public Employee(String firstName, String lastName, int pesel, String department, double salary) {
+    public Employee(String firstName, String lastName, String pesel, String department, double salary) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.pesel = pesel;
@@ -34,11 +34,11 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public int getPesel() {
+    public String getPesel() {
         return pesel;
     }
 
-    public void setPesel(int pesel) {
+    public void setPesel(String pesel) {
         this.pesel = pesel;
     }
 
@@ -68,4 +68,5 @@ public class Employee {
                 ", salary=" + salary +
                 '}';
     }
+
 }
