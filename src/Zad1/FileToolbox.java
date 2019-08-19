@@ -63,19 +63,20 @@ public class FileToolbox {
         }
         return result;
     }
-    //dzialy
-//    public static String departmentsQty (Employee[] employees){
-//        String departments = null;
-//        for (int i = 0; i < employees.length; i++) {
-//            departments += employees[i]+ "/";
+    public static int departmentsQty (Employee[] employees, String dep){
+        int counter = 0;
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getDepartment().equals(dep)){
+                counter++;
+            }
 //            String[] department = departments.split("/");
 //            for (int j = 0; j < department.length; j++) {
 //                if ()
 //
 //            }
-//        }
-//        return departments;
-//    }
+        }
+        return counter;
+    }
 
     public static void saveFile (Employee[] employees){
         try (FileWriter fw = new FileWriter("d:\\wynik.txt")) {
@@ -84,6 +85,9 @@ public class FileToolbox {
             bw.write("max wyplata: " + FileToolbox.maxPayment(employees) + "\n");
             bw.write("min wyplata: " + FileToolbox.minPayment(employees) + "\n");
             bw.write("Srednia wyplata: " + FileToolbox.avgPayment(employees) + "\n");
+            bw.write("Dzial IT: " + FileToolbox.departmentsQty(employees, "it") + "\n");
+            bw.write("Dzial Management: " + FileToolbox.departmentsQty(employees, "Management") + "\n");
+            bw.write("Dzial Support: " + FileToolbox.departmentsQty(employees, "Support") + "\n");
             bw.close();
         }catch (IOException e ){
             e.printStackTrace();
